@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ServicePackageManifest xmlns="http://clayster.com/schema/ServicePackageManifest/v1.xsd">
+	<ApplicationFiles>
+		<ApplicationFile file="Controller2.dll"/>
+	</ApplicationFiles>
+</ServicePackageManifest>

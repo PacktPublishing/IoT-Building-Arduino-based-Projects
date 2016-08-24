@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+© Clayster, 2014
+Author: Peter Waher 
+-->
+<ServicePackageManifest xmlns="http://clayster.com/schema/ServicePackageManifest/v1.xsd">
+	<ApplicationFiles>
+		<ApplicationFile file="CoapGateway.dll"/>
+	</ApplicationFiles>
+	<LanguageFiles>
+		<LanguageFile file="Language/CoapGateway.xml"/>
+	</LanguageFiles>
+</ServicePackageManifest>

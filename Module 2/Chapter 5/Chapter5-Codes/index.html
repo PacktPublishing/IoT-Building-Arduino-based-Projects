@@ -1,0 +1,48 @@
+<!DOCTYPE html>        
+
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="PAGE" ></script>
+<script type='text/javascript' src='http://nearbus.net/downloads/js_apps/nearapi_v05.js'></script>
+
+
+<script>
+
+var device_id     = "NB101706";     // Your device ID
+var    user       = "****";         // Your NearBus Web user
+var pass          = "****";         // Your NearBus Web password
+var LOOP_DELAY    = 2000;
+
+    
+    window.onload = function ()
+    {
+        
+        setInterval( function()
+        {
+            ret = NearAPIjs( "ADC_INPUT", device_id , 1, 0, "RONLY" );
+            if( ret != "WAIT" ) {
+                var voltage = ret;
+                $('#field_1').text( voltage.toString() );    
+            }
+        }, LOOP_DELAY );                
+    }
+
+
+</script>
+
+<body bgcolor="#000">
+<br />
+<p><div style="text-align:center; width:950px"><img src="http://nearbus.net/images/logo_nearbus.png" width="140" heisgth="78"</div></p>
+<br />
+<p><div style="text-align:center; width:950px; font: bold 60px Arial; color:orange;">SOLAR CELL VOLTAGE CHART</div></p>
+<br />
+
+<div id="div_temp_chart_cm"> <img src="https://api.cosm.com/v2/feeds/1910481586/datastreams/1.png?width=750&height=400&colour=%23f15a24&duration=3hours&show_axis_labels=true&detailed_grid=true&timezone=5.5" > </div>
+
+<br />
+<br />
+<p><div style="text-align:center; width:950px; font: bold 60px Arial; color:orange;">volts</div></p>
+<p><div id="field_1" style="text-align:center; width:950px; font: bold 300px Arial; color:orange;">. . . .</div></p>
+</body>
+</html>

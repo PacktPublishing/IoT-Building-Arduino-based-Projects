@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Layout font="Segoe UI" fontSize="10" textColor="Black" xmlns="http://clayster.com/schema/Layout/v1.xsd" xmlns:scpd="urn:schemas-upnp-org:service-1-0">
+  <Brushes>
+    <SolidBrush name="SolidBlack" color="Black" />
+    <SolidBrush name="SolidWhite" color="White" />
+    <SolidBrush name="Transparent" color="Transparent" />
+    <LinearGradientBrush name="BoxFill" angle="0">
+      <LinearGradientColor color="#c0c0ff" position="0" />
+      <LinearGradientColor color="#ffffff" position="1" />
+    </LinearGradientBrush>
+  </Brushes>
+  <Shapes>
+    <Ellipse name="Interface" borderBrush="SolidBlack" borderWidth="2" fillBrush="SolidWhite" offsetType="Pixels" />
+    <RoundedRectangle name="InterfaceBox" borderBrush="SolidBlack" borderWidth="2" cornerRadius="5" fillBrush="SolidWhite" offsetType="Pixels" />
+  </Shapes>
+  <Padding borderBrush="Transparent" borderWidth="1" top="20" bottom="20" left="20" right="20" zOrder="1">
+    <Padding backgroundBrush="BoxFill" offsetType="Pixels" borderWidth="3" left="5" right="5" top="5" bottom="5" borderBrush="SolidBlack">
+      <Padding left="30" right="50" top="20" bottom="20">
+        <Anchor anchorOn="TopLeft" anchorTo="TopRight">
+          <Padding top="0" bottom="0" left="0" right="40">
+            <Label text=" ">
+              <StraightLine brush="SolidBlack" startPosition="TopRight" startEndPointShape="Interface" startYOffset="20" endPosition="TopLeft" endClip="true" endPointSize="10" endYOffset="20" connectTo="InterfaceDescription" />
+            </Label>
+          </Padding>
+        </Anchor>
+        <Padding left="10" right="10" top="5" bottom="5" borderWidth="2" shape="InterfaceBox" name="InterfaceDescription">
+          <Grid columns="1">
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="GetAvailableCompressionLevels(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="out " />
+                      <Label bold="true" text="RetAvailableCompressionLevels" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="AvailableCompressionLevels" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="GetAvailableEncodings(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="out " />
+                      <Label bold="true" text="RetAvailableEncodings" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="AvailableEncodings" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="GetAvailableResolutions(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="out " />
+                      <Label bold="true" text="RetAvailableResolutions" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="AvailableResolutions" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="GetDefaultCompressionLevel(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="out " />
+                      <Label bold="true" text="RetCompressionLevel" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultCompressionLevel" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="GetDefaultEncoding(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="out " />
+                      <Label bold="true" text="RetEncoding" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultEncoding" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="GetDefaultImagePresentationURL(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="out " />
+                      <Label bold="true" text="RetImagePresentationURL" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="ImagePresentationURL" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="GetDefaultImageURL(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="out " />
+                      <Label bold="true" text="RetImageURL" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="ImageURL" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="GetDefaultResolution(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="out " />
+                      <Label bold="true" text="RetResolution" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultResolution" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="GetImagePresentationURL(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="in " />
+                      <Label bold="true" text="ReqEncoding" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultEncoding" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text="," />
+                    </Baseline>
+                  </Padding>
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="in " />
+                      <Label bold="true" text="ReqCompression" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultCompressionLevel" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text="," />
+                    </Baseline>
+                  </Padding>
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="in " />
+                      <Label bold="true" text="ReqResolution" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultResolution" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text="," />
+                    </Baseline>
+                  </Padding>
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="out " />
+                      <Label bold="true" text="RetImagePresentationURL" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="ImagePresentationURL" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="GetImageURL(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="in " />
+                      <Label bold="true" text="ReqEncoding" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultEncoding" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text="," />
+                    </Baseline>
+                  </Padding>
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="in " />
+                      <Label bold="true" text="ReqCompression" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultCompressionLevel" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text="," />
+                    </Baseline>
+                  </Padding>
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="in " />
+                      <Label bold="true" text="ReqResolution" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultResolution" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text="," />
+                    </Baseline>
+                  </Padding>
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="out " />
+                      <Label bold="true" text="RetImageURL" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="ImageURL" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="SetDefaultCompressionLevel(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="in " />
+                      <Label bold="true" text="ReqCompressionLevel" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultCompressionLevel" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="SetDefaultEncoding(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="in " />
+                      <Label bold="true" text="ReqEncoding" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultEncoding" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <TopDown>
+                  <Label bold="true" text="SetDefaultResolution(" />
+                  <Padding left="30" top="0" right="0" bottom="0">
+                    <Baseline>
+                      <Label text="in " />
+                      <Label bold="true" text="ReqResolution" />
+                      <Label text=" : " />
+                      <Label text="string" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (see: " />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" bold="true" text="DefaultResolution" />
+                      <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text=")" />
+                      <Label text=")" />
+                    </Baseline>
+                  </Padding>
+                </TopDown>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Span height="6" width="1" />
+            </Cell>
+            <Cell borderTopBrush="SolidBlack" borderTopWidth="1">
+              <Span height="6" width="1" />
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <Baseline>
+                  <Label bold="true" text="AvailableCompressionLevels" />
+                  <Label text=" : string" />
+                </Baseline>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <Baseline>
+                  <Label bold="true" text="AvailableEncodings" />
+                  <Label text=" : string" />
+                </Baseline>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <Baseline>
+                  <Label bold="true" text="AvailableResolutions" />
+                  <Label text=" : string" />
+                </Baseline>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <Baseline>
+                  <Label bold="true" text="DefaultCompressionLevel" />
+                  <Label text=" : string" />
+                  <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (Sends Events)" />
+                </Baseline>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <Baseline>
+                  <Label bold="true" text="DefaultEncoding" />
+                  <Label text=" : string" />
+                  <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (Sends Events)" />
+                </Baseline>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <Baseline>
+                  <Label bold="true" text="DefaultResolution" />
+                  <Label text=" : string" />
+                  <Label fontSizeMultiplier="0.9" italic="true" textColor="Green" text="     (Sends Events)" />
+                </Baseline>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <Baseline>
+                  <Label bold="true" text="ImagePresentationURL" />
+                  <Label text=" : string" />
+                </Baseline>
+              </Padding>
+            </Cell>
+            <Cell>
+              <Padding left="0" right="0" top="3" bottom="3" offsetType="Pixels">
+                <Baseline>
+                  <Label bold="true" text="ImageURL" />
+                  <Label text=" : string" />
+                </Baseline>
+              </Padding>
+            </Cell>
+          </Grid>
+        </Padding>
+      </Padding>
+    </Padding>
+  </Padding>
+</Layout>

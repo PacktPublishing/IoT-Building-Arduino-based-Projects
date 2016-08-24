@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Layout font="Segoe UI" fontSize="10" textColor="Black" xmlns="http://clayster.com/schema/Layout/v1.xsd" xmlns:d="urn:schemas-upnp-org:device-1-0">
+  <Brushes>
+    <SolidBrush name="SolidBlack" color="Black" />
+    <SolidBrush name="SolidWhite" color="White" />
+    <SolidBrush name="Transparent" color="Transparent" />
+    <LinearGradientBrush name="BoxFill0" angle="0">
+      <LinearGradientColor color="#c0c0ff" position="0" />
+      <LinearGradientColor color="#ffffff" position="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush name="BoxFill1" angle="0">
+      <LinearGradientColor color="#c0ffc0" position="0" />
+      <LinearGradientColor color="#ffffff" position="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush name="BoxFill2" angle="0">
+      <LinearGradientColor color="#ffc0c0" position="0" />
+      <LinearGradientColor color="#ffffff" position="1" />
+    </LinearGradientBrush>
+  </Brushes>
+  <Shapes>
+    <Ellipse name="Interface" borderBrush="SolidBlack" borderWidth="2" fillBrush="SolidWhite" offsetType="Pixels" />
+    <RoundedRectangle name="InterfaceBox" borderBrush="SolidBlack" borderWidth="2" cornerRadius="5" fillBrush="SolidWhite" offsetType="Pixels" />
+  </Shapes>
+  <Padding borderBrush="Transparent" borderWidth="1" top="20" bottom="20" left="20" right="20" zOrder="1">
+    <TopDown>
+      <Grid columns="1" offsetType="Pixels" borderWidth="3" borderBrush="SolidBlack" backgroundBrush="BoxFill0">
+        <Cell halignment="Left" valignment="Top" borderWidth="2" borderBrush="SolidBlack" backgroundBrush="SolidWhite">
+          <Padding left="10" right="10" top="10" bottom="10">
+            <Grid columns="3">
+              <Cell colSpan="3" halignment="Center" valignment="Center">
+                <Padding top="5" bottom="15" left="0" right="0">
+                  <Label bold="true" underline="true" fontSizeMultiplier="1.25" textColor="Green" text="Learning-IoT Camera (192.168.0.28)" />
+                </Padding>
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label text="Device Type:" />
+              </Cell>
+              <Cell>
+                <Span width="10" height="1" />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label bold="true" text="urn:example:device:learningIotCamera:1" />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label text="Manufacturer:" />
+              </Cell>
+              <Cell>
+                <Span width="10" height="1" />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label bold="true" text="Clayster" />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label text="Model Name:" />
+              </Cell>
+              <Cell>
+                <Span width="10" height="1" />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label bold="true" text="Learning-IoT Camera" />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label text="Model Number:" />
+              </Cell>
+              <Cell>
+                <Span width="10" height="1" />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label bold="true" text="C1" />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label text="Model Description:" />
+              </Cell>
+              <Cell>
+                <Span width="10" height="1" />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label bold="true" text="UPnP Camera sample from the Learning-IoT book." />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label text="UDN:" />
+              </Cell>
+              <Cell>
+                <Span width="10" height="1" />
+              </Cell>
+              <Cell halignment="Left" valignment="Center">
+                <Label bold="true" text="uuid:65d962ac-0094-11e4-9f70-b2227cce2b54" />
+              </Cell>
+            </Grid>
+          </Padding>
+        </Cell>
+        <Cell>
+          <Padding left="30" right="50" top="20" bottom="20">
+            <Anchor anchorOn="TopLeft" anchorTo="TopRight">
+              <Padding top="0" bottom="0" left="0" right="40">
+                <Label text=" ">
+                  <StraightLine brush="SolidBlack" startPosition="TopRight" startEndPointShape="Interface" startYOffset="20" endPosition="TopLeft" endClip="true" endPointSize="10" endYOffset="20" connectTo="InterfaceDescription_1" />
+                </Label>
+              </Padding>
+            </Anchor>
+            <Padding left="10" right="10" top="5" bottom="5" borderWidth="2" shape="InterfaceBox" name="InterfaceDescription_1">
+              <Grid columns="3">
+                <Cell halignment="Left" valignment="Center">
+                  <Label text="Service Type:" />
+                </Cell>
+                <Cell>
+                  <Span width="10" height="1" />
+                </Cell>
+                <Cell halignment="Left" valignment="Center">
+                  <Label bold="true" text="urn:schemas-upnp-org:service:DigitalSecurityCameraStillImage:1" />
+                </Cell>
+                <Cell halignment="Left" valignment="Center">
+                  <Label text="Service ID:" />
+                </Cell>
+                <Cell>
+                  <Span width="10" height="1" />
+                </Cell>
+                <Cell halignment="Left" valignment="Center">
+                  <Label bold="true" text="urn:upnp-org:serviceId:DigitalSecurityCameraStillImage" />
+                </Cell>
+                <Cell halignment="Left" valignment="Center">
+                  <Label text="SCPD URL:" />
+                </Cell>
+                <Cell>
+                  <Span width="10" height="1" />
+                </Cell>
+                <Cell halignment="Left" valignment="Center">
+                  <ClickArea name="SCPD__1">
+                    <Label bold="true" underline="true" textColor="Blue" text="/StillImageService.xml" />
+                  </ClickArea>
+                </Cell>
+              </Grid>
+            </Padding>
+          </Padding>
+        </Cell>
+      </Grid>
+    </TopDown>
+  </Padding>
+</Layout>

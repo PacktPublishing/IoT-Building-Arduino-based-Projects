@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoapGateway", "CoapGateway\CoapGateway.csproj", "{A32959D7-1546-42E2-BC2E-805727ABF999}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		MONO|Any CPU = MONO|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A32959D7-1546-42E2-BC2E-805727ABF999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32959D7-1546-42E2-BC2E-805727ABF999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32959D7-1546-42E2-BC2E-805727ABF999}.MONO|Any CPU.ActiveCfg = MONO|Any CPU
+		{A32959D7-1546-42E2-BC2E-805727ABF999}.MONO|Any CPU.Build.0 = MONO|Any CPU
+		{A32959D7-1546-42E2-BC2E-805727ABF999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32959D7-1546-42E2-BC2E-805727ABF999}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = CoapGateway\CoapGateway.csproj
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+© Clayster, 2014
+Author: Peter Waher
+-->
+<xs:schema id="CoapTopology"
+		   targetNamespace="http://clayster.com/schema/LearningIoT/CoapGateway/v1.xsd"
+           elementFormDefault="qualified"
+           xmlns="http://clayster.com/schema/LearningIoT/CoapGateway/v1.xsd"
+           xmlns:mstns="http://clayster.com/schema/LearningIoT/CoapGateway/v1.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:top="http://clayster.com/schema/Topology/v3.xsd">
+
+	<xs:import namespace="http://clayster.com/schema/Topology/v3.xsd"/>
+
+	<xs:complexType name="CoapPort">
+		<xs:complexContent>
+			<xs:extension base="top:Node">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="CoapServer" type="CoapServer"/>
+				</xs:choice>
+				<xs:attribute name="port" type="top:PortNumber" use="optional" default="5683"/>
+				<xs:attribute name="ttl" type="xs:unsignedByte" use="optional" default="30"/>
+				<xs:attribute name="userId" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapServer">
+		<xs:complexContent>
+			<xs:extension base="top:IpNode">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="CoapFolder" type="CoapFolder"/>
+					<xs:group ref="CoapContentNodes"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapNode" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="top:Node">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapFolder">
+		<xs:complexContent>
+			<xs:extension base="CoapNode">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="CoapFolder" type="CoapFolder"/>
+					<xs:group ref="CoapContentNodes"/>
+				</xs:choice>
+				<xs:attribute name="folder" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapContent" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="CoapNode">
+				<xs:attribute name="resource" type="xs:string" use="required"/>
+				<xs:attribute name="query" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapSimpleContent" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="CoapContent">
+				<xs:attribute name="fieldName" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapBoolean">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapDateTime">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapDuration">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapNumber">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapPhysicalMagnitude">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapString">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapFields">
+		<xs:complexContent>
+			<xs:extension base="CoapContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapJson">
+		<xs:complexContent>
+			<xs:extension base="CoapContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapXep0323">
+		<xs:complexContent>
+			<xs:extension base="CoapContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapXml">
+		<xs:complexContent>
+			<xs:extension base="CoapContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:group name="CoapContentNodes">
+		<xs:choice>
+			<xs:element name="CoapBoolean" type="CoapBoolean"/>
+			<xs:element name="CoapDateTime" type="CoapDateTime"/>
+			<xs:element name="CoapDuration" type="CoapDuration"/>
+			<xs:element name="CoapNumber" type="CoapNumber"/>
+			<xs:element name="CoapPhysicalMagnitude" type="CoapPhysicalMagnitude"/>
+			<xs:element name="CoapString" type="CoapString"/>
+			<xs:element name="CoapFields" type="CoapFields"/>
+			<xs:element name="CoapJson" type="CoapJson"/>
+			<xs:element name="CoapXep0323" type="CoapXep0323"/>
+			<xs:element name="CoapXml" type="CoapXml"/>
+		</xs:choice>
+	</xs:group>
+
+</xs:schema>

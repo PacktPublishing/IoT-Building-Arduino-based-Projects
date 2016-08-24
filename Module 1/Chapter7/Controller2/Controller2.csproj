@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC3CF7F1-AC63-44DA-822E-4DD9314ADE89}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Controller2</RootNamespace>
+    <AssemblyName>Controller2</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="CopyToRaspberryPi.bat" workingdir="${ProjectDir}" />
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Clayster.AppServer.Infrastructure">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.AppServer.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Abstract">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Data">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.EventLog">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Internet">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Internet.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Installation">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Installation.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Language">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Language.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Math">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Meters">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Meters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web" />
+    <Reference Include="Clayster.Metering.Xmpp">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Metering.Xmpp.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.HomeApp.MomentaryValues">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.HomeApp.MomentaryValues.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controller.cs" />
+    <Compile Include="Sensor.cs" />
+    <Compile Include="Actuator.cs" />
+    <Compile Include="Camera.cs" />
+    <Compile Include="MailSettings.cs" />
+    <Compile Include="CamStorage.cs" />
+    <Compile Include="TestApp.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="CopyToRaspberryPi.bat" />
+    <None Include="Controller2.packagemanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LearningIoT.cer" />
+  </ItemGroup>
+</Project>

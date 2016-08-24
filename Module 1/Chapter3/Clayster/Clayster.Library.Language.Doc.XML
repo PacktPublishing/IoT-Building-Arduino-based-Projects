@@ -1,0 +1,1760 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Clayster.Library.Language</name>
+    </assembly>
+    <members>
+        <member name="T:Clayster.Library.Language.Component_Translators.ComponentTranslator">
+            <summary>
+            The base class for all specific Component Translators.
+            If the component has properties that are not available as 
+            simple string values properties, a component translator
+            needs to be created for that type. Otherwise the type needs
+            to be translated manually.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.Component_Translators.ComponentTranslator.#ctor">
+            <summary>
+            The base class for all specific Component Translators.
+            If the component has properties that are not available as 
+            simple string values properties, a component translator
+            needs to be created for that type. Otherwise the type needs
+            to be translated manually.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.Component_Translators.ComponentTranslator.Translate(System.Object,Clayster.Library.Language.LanguageComponent,System.Object,System.Boolean)">
+            <summary>
+            Translates a component of the given type.
+            </summary>
+            <param name="Obj">Object to traslate.</param>
+            <param name="ComponentLanguage">Language object corresponding
+            to the given component.</param>
+            <param name="Owner">Owner of the component.</param>
+            <param name="ObjectCreated">If the component is begin translated
+            for the first time (true) or if it is a re-translation (false).</param>
+        </member>
+        <member name="P:Clayster.Library.Language.Component_Translators.ComponentTranslator.TranslatesType">
+            <summary>
+            Returns the type the translator recognizes.
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageCommonString">
+            <summary>
+            String for the common module
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageModuleString">
+            <summary>
+            Represents a string in a language module.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModuleString.#ctor">
+            <summary>
+            Represents a string in a language module.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModuleString.#ctor(System.Int64,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Represents a string in a language module.
+            </summary>
+            <param name="ModuleId">Object ID for the language module.</param>
+            <param name="Id">String ID</param>
+            <param name="Value">Value</param>
+            <param name="DefaultValue">true if it is the default value.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModuleString.Format(System.Object[])">
+            <summary>
+            Formats the value with any items provided.
+            </summary>
+            <param name="Parameters">Items to embed</param>
+            <returns>Formatted string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModuleString.ToString">
+            <summary>
+            <see cref="M:System.Object.ToString"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModuleString.Export(System.Xml.XmlWriter,System.Boolean,System.Boolean)">
+            <summary>
+            Exports the string to XML.
+            </summary>
+            <param name="Writer">XML Writer</param>
+            <param name="OnlyDefault">If only default strings are to be exported.</param>
+            <param name="IncludeDatabaseInformation">If Database information should be included.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModuleString.Update(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.Update(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModuleString.SaveNew(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.SaveNew(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModuleString.Delete(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.Delete(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModuleString.ModuleId">
+            <summary>
+            Object ID of the language module.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModuleString.StringId">
+            <summary>
+            String ID
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModuleString.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModuleString.DefaultValue">
+            <summary>
+            True iff the value is the default value.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommonString.#ctor">
+            <summary>
+            String for the common module
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommonString.#ctor(System.Int64,System.Int32,System.String,System.Boolean)">
+            <summary>
+            String for the common module
+            </summary>
+            <param name="ModuleId">Object ID for the language module.</param>
+            <param name="Id">String ID</param>
+            <param name="Value">Value</param>
+            <param name="DefaultValue">true if it is the default value.</param>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageCache">
+            <summary>
+            Class handling off-line caching of language content.
+            </summary>
+            <remarks>
+            © Clayster, 2008-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCache.Initialize(System.String)">
+            <summary>
+            Initializes the language engine by either loading the language content from
+            a local cache file, or if none available, loading it from the corresponding
+            database.
+            </summary>
+            <param name="CacheFileName">File name of the local cache file.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCache.Initialize(System.String,System.Boolean)">
+            <summary>
+            Initializes the language engine. Choose if database should be used or not.
+            </summary>
+            <param name="CacheFileName">File name of the local cache file.</param>
+            <param name="useDatabaseInformation">Specify if database are to be used or not.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCache.Terminate">
+            <summary>
+            Terminates the Language cache.
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageCommon">
+            <summary>
+            Special language module for common strings.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageModule">
+            <summary>
+            Class representing a language module.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.#ctor">
+            <summary>
+            Class representing a language module.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.#ctor(System.Int64,System.String,Clayster.Library.Language.Language)">
+            <summary>
+            Class representing a language module.
+            </summary>
+            <param name="LanguageId">Object ID of the Language.</param>
+            <param name="ModuleName">Module name.</param>
+            <param name="Parent">Language owning the module.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.GetString(System.Int32,System.String)">
+            <summary>
+            Gets a Language Module String object.
+            </summary>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default string.</param>
+            <returns>Language Module String object.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.CreateNewString(System.Int32,System.String)">
+            <summary>
+            Creates a new module language string.
+            </summary>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default Value</param>
+            <returns>New module string object. (Unsaved)</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.HasString(System.Int32)">
+            <summary>
+            Returs true iff a string with the given ID exists in the module.
+            </summary>
+            <param name="StringId">String ID</param>
+            <returns>true iff a string with the given ID exists in the module.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.GetComponent(System.String)">
+            <summary>
+            Gets a Language Module Component.
+            </summary>
+            <param name="Component">Component name</param>
+            <returns>Language Module Component.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.TranslateComponent(System.String,System.Object,System.Object,System.Boolean,Clayster.Library.Language.PropertyCheck)">
+            <summary>
+            Translate a component.
+            </summary>
+            <param name="Name">Name of component.</param>
+            <param name="Component">Component object instance.</param>
+            <param name="Owner">Owner of the component.</param>
+            <param name="ObjectCreated">If the object has been created.</param>
+            <param name="PropertyCheck">Property Check method to see what properties should be translated.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.FindStrings(Clayster.Library.Data.Expressions.SearchExpression,System.Int64)">
+            <summary>
+            Finds available module strings in the object database.
+            </summary>
+            <param name="Expression">Search expression</param>
+            <param name="ObjectId">Module Object ID</param>
+            <returns>Available strings.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.FindStrings(Clayster.Library.Data.Expressions.SearchExpression,System.Int64,System.Int32,Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            Finds available module strings in the object database.
+            </summary>
+            <param name="Expression">Search expression</param>
+            <param name="ObjectId">Module Object ID</param>
+            <param name="OwnerId">Owner ID</param>
+            <param name="ConnectionState">SQL Connection State</param>
+            <returns>Available strings.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.String(System.Int32,System.String)">
+            <summary>
+            Returns a translated string.
+            </summary>
+            <param name="StringId">ID of the string.</param>
+            <param name="DefaultValue">Default value if the string
+            is not found.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.String(System.Int32[],System.String[])">
+            <summary>
+            Returns an array of translated strings.
+            </summary>
+            <param name="StringIds">Array of IDs of strings.</param>
+            <param name="DefaultValues">Default values if any of the strings
+            are not found.</param>
+            <returns>Translated strings.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.String(System.Int32,System.String,System.Object[])">
+            <summary>
+            Returns a formatted translated string.
+            </summary>
+            <param name="StringId">ID of the string.</param>
+            <param name="DefaultValue">Default value if the string
+            is not found.</param>
+            <param name="Parameters">Parameters to use to format the string.
+            The first parameter replaces any %0% found in the string, the second
+            replaces any %1% etc.</param>
+            <returns>Formatted Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.String(System.Int32[],System.String[],System.Object[])">
+            <summary>
+            Returns an array of formatted translated strings.
+            </summary>
+            <param name="StringIds">Array of IDs of strings.</param>
+            <param name="DefaultValues">Default values if any of the strings
+            are not found.</param>
+            <param name="Parameters">Parameters to use to format the string.
+            The first parameter replaces any %0% found in the string, the second
+            replaces any %1% etc.</param>
+            <returns>Translated strings.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.Delete(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.Delete(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.DeleteString(System.Int32)">
+            <summary>
+            Delete the string with the given String ID.
+            </summary>
+            <param name="StringId">String ID</param>
+            <returns>If found and deleted.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.DeleteComponent(System.String)">
+            <summary>
+            Delete component.
+            </summary>
+            <param name="ComponentName">Name of the component.</param>
+            <returns>true if found and deleted.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.Export(System.Xml.XmlWriter,System.Boolean,System.Boolean)">
+            <summary>
+            Exports the language module to XML.
+            </summary>
+            <param name="Writer">XML Writer</param>
+            <param name="OnlyDefault">If only default values should be exported (true) or not (false).</param>
+            <param name="IncludeDatabaseInformation">If Database information should be included.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.ToString">
+            <summary>
+            <see cref="M:System.Object.ToString"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.Update(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.Update(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageModule.SaveNew(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.SaveNew(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModule.LanguageId">
+            <summary>
+            Object ID of the language.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModule.Common">
+            <summary>
+            Contains common language strings.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModule.Name">
+            <summary>
+            Name of the language module.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModule.Strings">
+            <summary>
+            Avaiable string objects.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModule.Components">
+            <summary>
+            Available components.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModule.ElementName">
+            <summary>
+            Element name used during XML Export.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModule.HasDefaultValues">
+            <summary>
+            If the language module contains default values.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageModule.Language">
+            <summary>
+            Current language.
+            </summary>
+        </member>
+        <member name="F:Clayster.Library.Language.LanguageCommon.ModuleName">
+            <summary>
+            Language module name for common strings.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.#ctor">
+            <summary>
+            Special language module for common strings.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.#ctor(System.Int64,Clayster.Library.Language.Language)">
+            <summary>
+            Special language module for common strings.
+            </summary>
+            <param name="LanguageId">Object ID of the language.</param>
+            <param name="Parent">Parent</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.Month(System.Int32)">
+            <summary>
+            Returns a long month name
+            </summary>
+            <param name="MonthNr">Month number (1=January, ..., 12=December)</param>
+            <returns>Long month name.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.Month(System.Int32,System.Boolean)">
+            <summary>
+            Returns a month name
+            </summary>
+            <param name="MonthNr">Month number (1=January, ..., 12=December)</param>
+            <param name="Short">If a short name should be returned (true) or a long name (false).</param>
+            <returns>Month name.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.Day(System.DayOfWeek)">
+            <summary>
+            Returns a long day name.
+            </summary>
+            <param name="Day">Day</param>
+            <returns>Long day name.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.Day(System.Int32)">
+            <summary>
+            Returns a long day name.
+            </summary>
+            <param name="Day">Day index (0 or 7=Sunday, 1=Monday, 2=Tuesday...)</param>
+            <returns>Long day name.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.Day(System.Int32,System.Boolean)">
+            <summary>
+            Returns a day name.
+            </summary>
+            <param name="Day">Day index (0 or 7=Sunday, 1=Monday, 2=Tuesday...)</param>
+            <param name="Short">If the day name should be short (true) or long (false).</param>
+            <returns>Day name.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.Day(System.DayOfWeek,System.Boolean)">
+            <summary>
+            Returns a day name.
+            </summary>
+            <param name="Day">Day</param>
+            <param name="Short">If the day name should be short (true) or long (false).</param>
+            <returns>Day name.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.YesNo(System.Boolean)">
+            <summary>
+            Returns Yes or No.
+            </summary>
+            <param name="x">true = Yes, false = No</param>
+            <returns>Yes or No</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.OnOff(System.Boolean)">
+            <summary>
+            Returns On or Off.
+            </summary>
+            <param name="x">true = On, false = Off</param>
+            <returns>On or Off</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.TrueFalse(System.Boolean)">
+            <summary>
+            Returns True or False.
+            </summary>
+            <param name="x">true = True, false = False</param>
+            <returns>True or False</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.CreateNewString(System.Int32,System.String)">
+            <summary>
+            <see cref="M:Clayster.Library.Language.LanguageModule.CreateNewString(System.Int32,System.String)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.FindStrings(Clayster.Library.Data.Expressions.SearchExpression,System.Int64)">
+            <summary>
+            <see cref="M:Clayster.Library.Language.LanguageModule.FindStrings(Clayster.Library.Data.Expressions.SearchExpression,System.Int64)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageCommon.FindStrings(Clayster.Library.Data.Expressions.SearchExpression,System.Int64,System.Int32,Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Language.LanguageModule.FindStrings(Clayster.Library.Data.Expressions.SearchExpression,System.Int64,System.Int32,Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.ElementName">
+            <summary>
+            Element name used during XML Export.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.Yes">
+            <summary>
+            Yes
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.No">
+            <summary>
+            No
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.January">
+            <summary>
+            January
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.February">
+            <summary>
+            February
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.March">
+            <summary>
+            March
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.April">
+            <summary>
+            April
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.May">
+            <summary>
+            May
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.June">
+            <summary>
+            June
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.July">
+            <summary>
+            July
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.August">
+            <summary>
+            August
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.September">
+            <summary>
+            September
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.October">
+            <summary>
+            October
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.November">
+            <summary>
+            November
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.December">
+            <summary>
+            December
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.OK">
+            <summary>
+            OK
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.Cancel">
+            <summary>
+            Cancel
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.True">
+            <summary>
+            True
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.False">
+            <summary>
+            False
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.On">
+            <summary>
+            On
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.Off">
+            <summary>
+            Off
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.JanuaryShort">
+            <summary>
+            Jan
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.FebruaryShort">
+            <summary>
+            Feb
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.MarchShort">
+            <summary>
+            Mar
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.AprilShort">
+            <summary>
+            Apr
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.MayShort">
+            <summary>
+            May
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.JuneShort">
+            <summary>
+            Jun
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.JulyShort">
+            <summary>
+            Jul
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.AugustShort">
+            <summary>
+            Aug
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.SeptemberShort">
+            <summary>
+            Sep
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.OctoberShort">
+            <summary>
+            Oct
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.NovemberShort">
+            <summary>
+            Nov
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.DecemberShort">
+            <summary>
+            Dec
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.Monday">
+            <summary>
+            Monday
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.Tuesday">
+            <summary>
+            Tuesday
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.Wednesday">
+            <summary>
+            Wednesday
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.Thursday">
+            <summary>
+            Thursday
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.Friday">
+            <summary>
+            Friday
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.Saturday">
+            <summary>
+            Saturday
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.Sunday">
+            <summary>
+            Sunday
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.MondayShort">
+            <summary>
+            Mon
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.TuesdayShort">
+            <summary>
+            Tue
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.WednesdayShort">
+            <summary>
+            Wed
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.ThursdayShort">
+            <summary>
+            Thu
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.FridayShort">
+            <summary>
+            Fri
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.SaturdayShort">
+            <summary>
+            Sat
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageCommon.SundayShort">
+            <summary>
+            Sun
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageAttribute">
+            <summary>
+            Base class of all language attributes.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageComponent">
+            <summary>
+            Class representing one component in a language module.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageComponent.#ctor">
+            <summary>
+            Class representing one component in a language module.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageComponent.#ctor(System.Int32,System.Int64,System.String)">
+            <summary>
+            Class representing one component in a language module.
+            </summary>
+            <param name="OwnerId">Owner ID</param>
+            <param name="ModuleId">Language Module ID</param>
+            <param name="Name">Name of the component.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageComponent.GetPropetyIfExists(System.String)">
+            <summary>
+            Gets a property if it exists, null otherwise.
+            </summary>
+            <param name="PropertyName">Name of the property.</param>
+            <returns>Property if it exists, null otherwise.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageComponent.GetString(System.String,System.String,System.Boolean)">
+            <summary>
+            Gets a property string.
+            </summary>
+            <param name="PropertyName">Property Name</param>
+            <param name="DefaultValue">Default Value</param>
+            <param name="ObjectCreated">If the object was newly created.</param>
+            <returns>Property value.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageComponent.ToString">
+            <summary>
+            <see cref="M:System.Object.ToString"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageComponent.Export(System.Xml.XmlWriter,System.Boolean,System.Boolean)">
+            <summary>
+            Exports the component to XML.
+            </summary>
+            <param name="Writer">XML Writer</param>
+            <param name="OnlyDefault">If only default values are to be exported or not.</param>
+            <param name="IncludeDatabaseInformation">If Database information should be included.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageComponent.Update(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.Update(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageComponent.SaveNew(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.SaveNew(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageComponent.Delete(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.Delete(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageComponent.ModuleId">
+            <summary>
+            Language module ID.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageComponent.Name">
+            <summary>
+            Name of the component.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageComponent.Properties">
+            <summary>
+            List of available properties.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageComponent.HasDefaultValues">
+            <summary>
+            If the component has default values.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageComponent.AreAllPropertiesEmpty">
+            <summary>
+            If all property values are empty (true) or not (false).
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.ITranslatable">
+            <summary>
+            Interface used by all translatable classes. By making a class
+            translatable objects of it can be registered for automatic
+            re-translation when a user changes his language settings.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.ITranslatable.Translate(System.Boolean)">
+            <summary>
+            Translates the object. The method is called by the static Translator
+            class when the language changes, if the object is registered with it.
+            </summary>
+            <param name="ObjectCreated">TODO</param>
+        </member>
+        <member name="T:Clayster.Library.Language.Language">
+            <summary>
+            Class representing a language.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.Language.#ctor">
+            <summary>
+            Class representing a language.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.Language.#ctor(System.String,System.String)">
+            <summary>
+            Class representing a language.
+            </summary>
+            <param name="LanguageName">Language name</param>
+            <param name="DisplayName">Name to display to users.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Language.GetModule(System.String)">
+            <summary>
+            Gets a language module with a given name.
+            </summary>
+            <remarks>
+            If a language module is not found with the given name, a new language module
+            is created and returned.
+            </remarks>
+            <param name="Module">Name of the language module.</param>
+            <returns>Language Module object reference.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Language.FindModule(System.String)">
+            <summary>
+            Gets a language module with a given name.
+            </summary>
+            <remarks>
+            If a language module is not found with the given name, null is returned.
+            </remarks>
+            <param name="Module">Name of the language module.</param>
+            <returns>Language Module object reference or null if not found.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Language.Delete(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.Delete(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.Language.Export(System.Xml.XmlWriter,System.String[],System.Boolean,System.Boolean)">
+            <summary>
+            Exports the language to XML.
+            </summary>
+            <param name="Writer">XML Writer.</param>
+            <param name="Modules">Modules to export. If all modules are to be exported, this parameter
+            should be set to null.</param>
+            <param name="OnlyDefault">If only default values are to be exported (true) or not (false).</param>
+            <param name="IncludeDatabaseInformation">If Database information should be included.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Language.DeleteModule(System.String)">
+            <summary>
+            Delete a language module.
+            </summary>
+            <param name="Module">Name of the language module to delete.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Language.ToString">
+            <summary>
+            <see cref="M:System.Object.ToString"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.Language.Update(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.Update(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.Language.SaveNew(Clayster.Library.Data.Providers.IProviderConnectionState)">
+            <summary>
+            <see cref="M:Clayster.Library.Data.DBObject.SaveNew(Clayster.Library.Data.Providers.IProviderConnectionState)"/>
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.Language.Common">
+            <summary>
+            Common strings.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.Language.Name">
+            <summary>
+            Name of the language.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.Language.DisplayName">
+            <summary>
+            Display Name of the language.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.Language.Image">
+            <summary>
+            Image to show to users.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.Language.ImageBytes">
+            <summary>
+            Byte array corresponding to <see name="Image"/>
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.Language.Modules">
+            <summary>
+            Gets a sorted list of available modules.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.Language.HasDefaultValues">
+            <summary>
+            If the language contains default values.
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageDontTranslateAttribute">
+            <summary>
+            Base class of all language attributes.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageDontTranslateAttribute.#ctor(System.String)">
+            <summary>
+            Specifies a control that should not be translated by a language sensitive form.
+            </summary>
+            <param name="ControlNames">Comma-separated list of names of the controls that should
+            not be translated.</param>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageDontTranslateAttribute.ControlNames">
+            <summary>
+            Name of the control that should no be translated.
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageException">
+            <summary>
+            Base class for all language sensitive exceptions
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageException.#ctor(System.String,System.Int32,System.String)">
+            <summary>
+            Base class for all language sensitive exceptions
+            </summary>
+            <param name="Module">Language Module</param>
+            <param name="StringId">String ID</param>
+            <param name="Message">Exception message</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageException.#ctor(System.String,System.Int32,System.String,System.Object[])">
+            <summary>
+            Base class for all language sensitive exceptions
+            </summary>
+            <param name="Module">Language Module</param>
+            <param name="StringId">String ID</param>
+            <param name="Message">Exception message</param>
+            <param name="Parameters">Any parameters to embed in the string.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageException.GetMessage(Clayster.Library.Language.Language)">
+            <summary>
+            Returns a localized error message.
+            </summary>
+            <param name="Language">Language containing the localized strings.</param>
+            <returns>Localized message</returns>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageException.Module">
+            <summary>
+            Module containing the language strings.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageException.StringId">
+            <summary>
+            String ID
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageException.Parameters">
+            <summary>
+            Parameters
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageMasterPage">
+            <summary>
+            Base class for all Language Sensitive Master Pages. There's no automatic translation
+            of controls only placed on the master side (since all controls are translated by the detail
+            page). However, the LanguageMasterPage publishes String-methods and a virtual Translate()
+            mathod that helps developers to easily translate strings and controls on the master page.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageMasterPage.GetDefaultLanguage">
+            <summary>
+            Returns a string containing the language to use for the page.
+            </summary>
+            <returns>Language to use.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageMasterPage.String(System.Int32,System.String)">
+            <summary>
+            Gets a translated string.
+            </summary>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageMasterPage.String(System.Int32,System.String,System.Object[])">
+            <summary>
+            Gets a formatted translated string.
+            </summary>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <param name="Parameters">Parameters to use to format the string.
+            The first parameter replaces any occurrances of %0% in the string,
+            the second replaces any %1% and so forth.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageMasterPage.String(System.String,System.Int32,System.String)">
+            <summary>
+            Gets a translated string.
+            </summary>
+            <param name="ModuleName">Name of the module to use</param>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageMasterPage.String(System.String,System.Int32,System.String,System.Object[])">
+            <summary>
+            Gets a formatted translated string.
+            </summary>
+            <param name="ModuleName">Name of the module to use</param>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <param name="Parameters">Parameters to use to format the string.
+            The first parameter replaces any occurrances of %0% in the string,
+            the second replaces any %1% and so forth.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageMasterPage.Translate(System.Boolean)">
+            <summary>
+            Translates the page and controls avilable in the form.
+            </summary>
+            <param name="ObjectCreated">If the form is translated for
+            the first time (true) or if it is a re-translation (false).</param>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageMasterPage.Module">
+            <summary>
+            The Module object corresponding to the page.
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguagePage">
+            <summary>
+            Base class for all Language Sensitive Web Forms. Any Web Form
+            that inherits from LanguagePage will automatically be translated by
+            the language module.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguagePage.OnPreRender(System.EventArgs)">
+            <summary>
+            <see cref="M:System.Web.UI.Control.OnPreRender(System.EventArgs)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguagePage.GetDefaultLanguage">
+            <summary>
+            Returns a string containing the language to use for the page.
+            </summary>
+            <returns>Language to use.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguagePage.Translate(System.Boolean)">
+            <summary>
+            Translates the page and controls avilable in the form.
+            </summary>
+            <param name="ObjectCreated">If the form is translated for
+            the first time (true) or if it is a re-translation (false).</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguagePage.String(System.Int32,System.String)">
+            <summary>
+            Gets a translated string.
+            </summary>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguagePage.String(System.Int32,System.String,System.Object[])">
+            <summary>
+            Gets a formatted translated string.
+            </summary>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <param name="Parameters">Parameters to use to format the string.
+            The first parameter replaces any occurrances of %0% in the string,
+            the second replaces any %1% and so forth.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguagePage.String(System.String,System.Int32,System.String)">
+            <summary>
+            Gets a translated string.
+            </summary>
+            <param name="ModuleName">Name of the module to use</param>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguagePage.String(System.String,System.Int32,System.String,System.Object[])">
+            <summary>
+            Gets a formatted translated string.
+            </summary>
+            <param name="ModuleName">Name of the module to use</param>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <param name="Parameters">Parameters to use to format the string.
+            The first parameter replaces any occurrances of %0% in the string,
+            the second replaces any %1% and so forth.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguagePage.Module">
+            <summary>
+            The Module object corresponding to the page.
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.PropertyCheck">
+            <summary>
+            Delegate for events to check properties.
+            </summary>
+            <param name="Info">Property information</param>
+            <param name="Value">String value</param>
+            <returns>true if the property should be handled, false if not.</returns>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageProperty">
+            <summary>
+            Class representing a single property in a component.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageProperty.#ctor">
+            <summary>
+            Class representing a single property in a component.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageProperty.#ctor(System.Int64,System.String,System.String,System.Boolean)">
+            <summary>
+            Class representing a single property in a component.
+            </summary>
+            <param name="ComponentId">Object ID of the component.</param>
+            <param name="Name">Name of the prioperty.</param>
+            <param name="Value">Property Value.</param>
+            <param name="DefaultValue">Default value</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageProperty.Export(System.Xml.XmlWriter,System.Boolean)">
+            <summary>
+            Export the property to XML.
+            </summary>
+            <param name="Writer">XML Writer</param>
+            <param name="IncludeDatabaseInformation">If Database information should be included.</param>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageProperty.ComponentId">
+            <summary>
+            Component ID
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageProperty.ModuleId">
+            <summary>
+            Deprecated: Use <see name="ComponentId"/> instead.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageProperty.Name">
+            <summary>
+            Name of the property
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageProperty.Value">
+            <summary>
+            Property value.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageProperty.DefaultValue">
+            <summary>
+            Default value.
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageSettings">
+            <summary>
+            Global Language settings.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageSettings.#ctor">
+            <summary>
+            Global Language settings.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageSettings.CurrentCultureLanguage">
+            <summary>
+            Language of the current culture chosen by the server system.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageSettings.DefaultLanguage">
+            <summary>
+            Default language name.
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageUserControl">
+            <summary>
+            Base class for all Language Sensitive User Controls. Any User Control
+            that inherits from LanguageUserControl will automatically be translated by
+            the language module.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageUserControl.OnPreRender(System.EventArgs)">
+            <summary>
+            <see cref="M:System.Web.UI.Control.OnPreRender(System.EventArgs)"/>
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageUserControl.GetDefaultLanguage">
+            <summary>
+            Returns a string containing the language to use for the page.
+            </summary>
+            <returns>Language to use.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageUserControl.Translate(System.Boolean)">
+            <summary>
+            Translates the page and controls avilable in the form.
+            </summary>
+            <param name="ObjectCreated">If the form is translated for
+            the first time (true) or if it is a re-translation (false).</param>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageUserControl.String(System.Int32,System.String)">
+            <summary>
+            Gets a translated string.
+            </summary>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageUserControl.String(System.Int32,System.String,System.Object[])">
+            <summary>
+            Gets a formatted translated string.
+            </summary>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <param name="Parameters">Parameters to use to format the string.
+            The first parameter replaces any occurrances of %0% in the string,
+            the second replaces any %1% and so forth.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageUserControl.String(System.String,System.Int32,System.String)">
+            <summary>
+            Gets a translated string.
+            </summary>
+            <param name="ModuleName">Name of the module to use</param>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.LanguageUserControl.String(System.String,System.Int32,System.String,System.Object[])">
+            <summary>
+            Gets a formatted translated string.
+            </summary>
+            <param name="ModuleName">Name of the module to use</param>
+            <param name="StringId">String ID</param>
+            <param name="DefaultValue">Default value. This value will
+            be used if the string id is not found.</param>
+            <param name="Parameters">Parameters to use to format the string.
+            The first parameter replaces any occurrances of %0% in the string,
+            the second replaces any %1% and so forth.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="P:Clayster.Library.Language.LanguageUserControl.Module">
+            <summary>
+            The Module object corresponding to the page.
+            </summary>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageEvent">
+            <summary>
+            Delegate for language events.
+            </summary>
+            <param name="Language">Language</param>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageModuleEvent">
+            <summary>
+            Delegate for language module events.
+            </summary>
+            <param name="LanguageModule">Language module</param>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageModuleStringEvent">
+            <summary>
+            Delegate for language module string events.
+            </summary>
+            <param name="LanguageModuleString">Language module string</param>
+        </member>
+        <member name="T:Clayster.Library.Language.LanguageComponentEvent">
+            <summary>
+            Delegate for language component events.
+            </summary>
+            <param name="LanguageComponent">Language component</param>
+        </member>
+        <member name="T:Clayster.Library.Language.Translator">
+            <summary>
+            The Translator class is a static class that maintains the
+            global collection of all strings of all supported languages.
+            </summary>
+            <remarks>
+            © Clayster, 2007-2015
+            
+            Author: Peter Waher
+            </remarks>
+        </member>
+        <member name="F:Clayster.Library.Language.Translator.LanguageNamespace">
+            <summary>
+            Namespace to use for Language XML Files.
+            </summary>
+        </member>
+        <member name="F:Clayster.Library.Language.Translator.DatabaseExportNamespace">
+            <summary>
+            Namespace to use for Language XML Files.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.ClearCache">
+            <summary>
+            Clears the language cache.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.RegisterComponentTranslator(Clayster.Library.Language.Component_Translators.ComponentTranslator)">
+            <summary>
+            Registers a component translator.
+            </summary>
+            <param name="ComponentTranslator">Component translator.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.RenameLanguage(Clayster.Library.Language.Language,System.String)">
+            <summary>
+            Rename a language.
+            </summary>
+            <param name="Language">Language to rename.</param>
+            <param name="NewName">New name.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.DeleteLanguage(Clayster.Library.Language.Language)">
+            <summary>
+            Delete a language.
+            </summary>
+            <param name="Language">Language to delete.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.DeleteComponentFromAllLanguages(System.String,System.String)">
+            <summary>
+            Delete a component from all languages.
+            </summary>
+            <param name="ModuleName">Language Module to delete the component from.</param>
+            <param name="ComponentName">Name of the component.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.FindLanguageByName(System.String)">
+            <summary>
+            Find a language by its name. If none is found, null is returned.
+            </summary>
+            <param name="Language">Language name.</param>
+            <returns>Language object reference if found, null if not.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.FindLanguageByDisplayName(System.String)">
+            <summary>
+            Find a language by its display name. If none is found, null is returned.
+            </summary>
+            <param name="Language">Language display name.</param>
+            <returns>Language object reference if found, null if not.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.HasLanguage(System.String)">
+            <summary>
+            Checks if a language if defined.
+            </summary>
+            <param name="Language">Language Name.</param>
+            <returns>If <paramref name="Language"/> exists.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.GetLanguage(System.String)">
+            <summary>
+            Gets a language from its name. if none is found a new Language object is created.
+            </summary>
+            <param name="Language">Language Name.</param>
+            <returns>Language object reference.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.GetLanguage(System.String,System.String)">
+            <summary>
+            Gets a language from its name. if none is found a new Language object is created.
+            </summary>
+            <param name="Language">Language Name.</param>
+            <param name="DisplayName">Display name.</param>
+            <returns>Language object reference.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.GetLanguage">
+            <summary>
+            Returns the language object corresponding to the default language.
+            </summary>
+            <returns>Language object.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.GetModule(System.String,System.String)">
+            <summary>
+            Returns the module object corresponding to a given module in a
+            given language.
+            </summary>
+            <param name="Language">Language name</param>
+            <param name="Module">Module name</param>
+            <returns>Module object.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.GetModule(System.String)">
+            <summary>
+            Retusn the module object corresponding to the given module in
+            the default language.
+            </summary>
+            <param name="Module">Module name.</param>
+            <returns>Module object.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.String(System.String,System.Int32,System.String)">
+            <summary>
+            Returns a translated string in the default language.
+            </summary>
+            <param name="Module">Name of the module.</param>
+            <param name="StringId">ID of the string.</param>
+            <param name="DefaultValue">Default value if the string
+            is not found.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.String(System.String,System.Int32[],System.String[])">
+            <summary>
+            Returns an array of translated strings in the default language.
+            </summary>
+            <param name="Module">Name of the module.</param>
+            <param name="StringIds">Array of IDs of strings.</param>
+            <param name="DefaultValues">Default values if any of the strings
+            are not found.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.String(System.String,System.Int32,System.String,System.Object[])">
+            <summary>
+            Returns a formatted translated string in the default language.
+            </summary>
+            <param name="Module">Name of the module.</param>
+            <param name="StringId">ID of the string.</param>
+            <param name="DefaultValue">Default value if the string
+            is not found.</param>
+            <param name="Parameters">Parameters to use to format the string.
+            The first parameter replaces any %0% found in the string, the second
+            replaces any %1% etc.</param>
+            <returns>Formatted Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.String(System.String,System.Int32[],System.String[],System.Object[])">
+            <summary>
+            Returns an array of formatted translated strings in the default language.
+            </summary>
+            <param name="Module">Name of the module.</param>
+            <param name="StringIds">Array of IDs of strings.</param>
+            <param name="DefaultValues">Default values if any of the strings
+            are not found.</param>
+            <param name="Parameters">Parameters to use to format the string.
+            The first parameter replaces any %0% found in the string, the second
+            replaces any %1% etc.</param>
+            <returns>Translated string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.RegisterTranslatableObject(Clayster.Library.Language.ITranslatable)">
+            <summary>
+            Registers a translatable object with the Translator.
+            When the default language changes, all translatable objects
+            will be notified and retranslated.
+            </summary>
+            <param name="Obj">Translatable object.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.UnregisterTranslatableObject(Clayster.Library.Language.ITranslatable)">
+            <summary>
+            Unregisters a translatable object from the Translator.
+            </summary>
+            <param name="Obj">Translatable object.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.GetTranslator(System.Type)">
+            <summary>
+            Gets a Component Translator corresponding to a given type. If none
+            is found, null is returned.
+            </summary>
+            <param name="Type">Type of object.</param>
+            <returns>Component Translator if found. null if not found.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.SupportsLanguage(System.String)">
+            <summary>
+            Checks if a language is supported by the translator.
+            </summary>
+            <param name="Language">Language to check.</param>
+            <returns>true iff the language is supported by
+            the translator.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Export(System.Xml.XmlWriter,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Exports language data to XML.
+            </summary>
+            <param name="Writer">XML Writer</param>
+            <param name="Languages">Languages to export.</param>
+            <param name="Modules">Modules to export.</param>
+            <param name="OnlyDefault">If only default strings are to be exported (true) or not (false).</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Export(System.Xml.XmlWriter,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Boolean,System.Boolean)">
+            <summary>
+            Exports language data to XML.
+            </summary>
+            <param name="Writer">XML Writer</param>
+            <param name="Languages">Languages to export.</param>
+            <param name="Modules">Modules to export.</param>
+            <param name="OnlyDefault">If only default strings are to be exported (true) or not (false).</param>
+            <param name="IncludeDatabaseInformation">If Database information should be included.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Export(System.Xml.XmlWriter,System.String[],System.String[],System.Boolean)">
+            <summary>
+            Exports language data to XML.
+            </summary>
+            <param name="Writer">XML Writer</param>
+            <param name="Languages">Languages to export.</param>
+            <param name="Modules">Modules to export.</param>
+            <param name="OnlyDefault">If only default strings are to be exported.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Export(System.Xml.XmlWriter,System.String[],System.String[],System.Boolean,System.Boolean)">
+            <summary>
+            Exports language data to XML.
+            </summary>
+            <param name="Writer">XML Writer</param>
+            <param name="Languages">Languages to export.</param>
+            <param name="Modules">Modules to export.</param>
+            <param name="OnlyDefault">If only default strings are to be exported.</param>
+            <param name="IncludeDatabaseInformation">If Database information should be included.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Export(System.Xml.XmlWriter,System.Boolean)">
+            <summary>
+            Exports all language data to XML.
+            </summary>
+            <param name="Writer">XML Writer</param>
+            <param name="OnlyDefault">If only default strings (i.e. untranslated strings) should be exported (true)
+            or if all strings should be exported (false).</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Export(System.Boolean)">
+            <summary>
+            Exports all language data to XML.
+            </summary>
+            <param name="OnlyDefault">If only default strings (i.e. untranslated strings) should be exported (true)
+            or if all strings should be exported (false).</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Export(System.Boolean,System.Boolean)">
+            <summary>
+            Exports all language data to XML.
+            </summary>
+            <param name="OnlyDefault">If only default strings (i.e. untranslated strings) should be exported (true)
+            or if all strings should be exported (false).</param>
+            <param name="IncludeDatabaseInformation">If Database information should be included.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Export(System.String[],System.String[],System.Boolean)">
+            <summary>
+            Exports all language data to XML.
+            </summary>
+            <param name="Languages">Languages to export</param>
+            <param name="Modules">Modules to export.</param>
+            <param name="OnlyDefault">If only default strings (i.e. untranslated strings) should be exported (true)
+            or if all strings should be exported (false).</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Export(System.String[],System.String[],System.Boolean,System.Boolean)">
+            <summary>
+            Exports all language data to XML.
+            </summary>
+            <param name="Languages">Languages to export</param>
+            <param name="Modules">Modules to export.</param>
+            <param name="OnlyDefault">If only default strings (i.e. untranslated strings) should be exported (true)
+            or if all strings should be exported (false).</param>
+            <param name="IncludeDatabaseInformation">If Database information should be included.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Import(System.Xml.XmlDocument)">
+            <summary>
+            Imports language definitions from an Xml Document.
+            </summary>
+            <param name="Doc">Xml document containing language information.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.Import(System.Xml.XmlDocument,System.Boolean)">
+            <summary>
+            Imports language definitions from an Xml Document.
+            </summary>
+            <param name="Doc">Xml document containing language information.</param>
+            <param name="ImportDatabaseInformation">If the document contains database information as well.</param>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.DeleteEmptyModules">
+            <summary>
+            Deletes empty language modules.
+            </summary>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.ParseDateTimeXml(System.String)">
+            <summary>
+            Parses a DateTime from a string corresponding to the xs:datetime type.
+            </summary>
+            <param name="s">String representation of the DateTime.</param>
+            <returns>DateTime if possible, DateTime.MinValue if not able to parse the string.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.TryParseDateTimeXml(System.String,System.DateTime@)">
+            <summary>
+            Tries to parse a DateTime from a string corresponding to the xs:datetime type.
+            </summary>
+            <param name="s">String representation of the DateTime.</param>
+            <param name="Result">DateTime, if parsed.</param>
+            <returns>true if parse successful, false if not.</returns>
+        </member>
+        <member name="M:Clayster.Library.Language.Translator.TryParseDouble(System.String,System.Double@)">
+            <summary>
+            Tries to parse a double from a string corresponding to the xs:double type.
+            </summary>
+            <param name="s">String representation of the double.</param>
+            <param name="Result">Double, if parsed.</param>
+            <returns>true if parse successful, false if not.</returns>
+        </member>
+        <member name="P:Clayster.Library.Language.Translator.DefaultLanguage">
+            <summary>
+            Corresponds to the default language chosen for the language module.
+            If the default language is changed, any registerred translatable
+            objects will be re-translated.
+            </summary>
+        </member>
+        <member name="P:Clayster.Library.Language.Translator.Languages">
+            <summary>
+            Gets a sorted list of available languages.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageUpdated">
+            <summary>
+            Event raised when a language object has been updated.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageCreated">
+            <summary>
+            Event raised when a language object has been created.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageDeleted">
+            <summary>
+            Event raised when a language object has been deleted.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageModuleUpdated">
+            <summary>
+            Event raised when a language module object has been updated.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageModuleCreated">
+            <summary>
+            Event raised when a language module object has been created.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageModuleDeleted">
+            <summary>
+            Event raised when a language module object has been deleted.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageModuleStringUpdated">
+            <summary>
+            Event raised when a language module string object has been updated.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageModuleStringCreated">
+            <summary>
+            Event raised when a language module string object has been created.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageModuleStringDeleted">
+            <summary>
+            Event raised when a language module string object has been deleted.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageComponentUpdated">
+            <summary>
+            Event raised when a language component object has been updated.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageComponentCreated">
+            <summary>
+            Event raised when a language component object has been created.
+            </summary>
+        </member>
+        <member name="E:Clayster.Library.Language.Translator.OnLanguageComponentDeleted">
+            <summary>
+            Event raised when a language component object has been deleted.
+            </summary>
+        </member>
+    </members>
+</doc>

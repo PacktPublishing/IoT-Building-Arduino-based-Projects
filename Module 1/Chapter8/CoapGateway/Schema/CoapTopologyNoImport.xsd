@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+© Clayster, 2014
+Author: Peter Waher
+-->
+<xs:schema id="CoapTopology"
+		   targetNamespace="http://clayster.com/schema/LearningIoT/CoapGateway/v1.xsd"
+           elementFormDefault="qualified"
+           xmlns="http://clayster.com/schema/LearningIoT/CoapGateway/v1.xsd"
+           xmlns:mstns="http://clayster.com/schema/LearningIoT/CoapGateway/v1.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:simpleType name="NodeClass">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ColdWater"/>
+			<xs:enumeration value="Concentrator"/>
+			<xs:enumeration value="Electricity"/>
+			<xs:enumeration value="Gas"/>
+			<xs:enumeration value="Gateway"/>
+			<xs:enumeration value="Heating"/>
+			<xs:enumeration value="HotWater"/>
+			<xs:enumeration value="Infrastructure"/>
+			<xs:enumeration value="Other"/>
+			<xs:enumeration value="Pressure"/>
+			<xs:enumeration value="Temperature"/>
+			<xs:enumeration value="Terminal"/>
+			<xs:enumeration value="Water"/>
+			<xs:enumeration value="Switch"/>
+			<xs:enumeration value="Dial"/>
+			<xs:enumeration value="MotionDetector"/>
+			<xs:enumeration value="MagneticContact"/>
+			<xs:enumeration value="Alarm"/>
+			<xs:enumeration value="DigitalSensor"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="LifecyclePhase">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Installation"/>
+			<xs:enumeration value="Test"/>
+			<xs:enumeration value="Production"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType abstract="true" name="EditableObject">
+		<xs:attribute name="id" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType abstract="true" name="EditableTreeNode">
+		<xs:complexContent>
+			<xs:extension base="EditableObject">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType abstract="true" name="CustomUserVisibilityNode">
+		<xs:complexContent>
+			<xs:extension base="EditableTreeNode">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType abstract="true" name="CustomUserVisibilityNodeSorted">
+		<xs:complexContent>
+			<xs:extension base="CustomUserVisibilityNode">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType abstract="true" name="GeocodedNode">
+		<xs:complexContent>
+			<xs:extension base="CustomUserVisibilityNodeSorted">
+				<xs:attribute name="geoLoc" type="xs:boolean" use="optional" default="false"/>
+				<xs:attribute name="geoLat" type="Latitude" use="optional" default="0"/>
+				<xs:attribute name="geoLon" type="Longitude" use="optional" default="0"/>
+				<xs:attribute name="minZoom" type="UnsignedByte" use="optional" default="0"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="UnsignedByte">
+		<xs:annotation>
+			<xs:documentation>To avoid problems in the MONO project, this simple type is used instead of xs:unsignedByte.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType abstract="true" name="GeocodedBoundaryNode">
+		<xs:complexContent>
+			<xs:extension base="GeocodedNode">
+				<xs:attribute name="geoBox" type="xs:boolean" use="optional" default="false"/>
+				<xs:attribute name="geoN" type="Latitude" use="optional" default="0"/>
+				<xs:attribute name="geoS" type="Latitude" use="optional" default="0"/>
+				<xs:attribute name="geoE" type="Longitude" use="optional" default="0"/>
+				<xs:attribute name="geoW" type="Longitude" use="optional" default="0"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Node" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="GeocodedNode">
+				<xs:attribute name="class" type="NodeClass" use="required"/>
+				<xs:attribute name="phase" type="LifecyclePhase" use="optional" default="Installation"/>
+				<xs:attribute name="name" type="xs:string" use="optional"/>
+				<xs:attribute name="owner" type="xs:string" use="optional"/>
+				<xs:attribute name="meterLocationId" type="xs:string" use="optional"/>
+				<xs:attribute name="meterNumber" type="xs:string" use="optional"/>
+				<xs:attribute name="customPrivilegeId" type="CustomPrivilegeId" use="optional"/>
+				<xs:attribute name="enabled" type="xs:boolean" use="optional" default="true" />
+				<xs:attribute name="colors" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="Latitude">
+		<xs:restriction base="xs:double">
+			<xs:minInclusive value="-90"/>
+			<xs:maxInclusive value="90"/>
+		</xs:restriction>	
+	</xs:simpleType>
+
+	<xs:simpleType name="Longitude">
+		<xs:restriction base="xs:double">
+			<xs:minInclusive value="-180"/>
+			<xs:maxInclusive value="180"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CustomPrivilegeId">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="^Root[.]CustomVisibility(.*)$"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ThreadNode" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="Node">
+				<xs:attribute name="threadGroup" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ThreadPoolNode" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="Node">
+				<xs:attribute name="maxThreads" type="xs:positiveInteger" use="optional" default="1"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="PortNumber">
+		<xs:restriction base="xs:positiveInteger">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="65535"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="IpNode" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="ThreadNode">
+				<xs:attribute name="host" type="xs:string" use="required"/>
+				<xs:attribute name="port" type="PortNumber" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapPort">
+		<xs:complexContent>
+			<xs:extension base="Node">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="CoapServer" type="CoapServer"/>
+				</xs:choice>
+				<xs:attribute name="port" type="PortNumber" use="optional" default="5683"/>
+				<xs:attribute name="ttl" type="xs:unsignedByte" use="optional" default="30"/>
+				<xs:attribute name="userId" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapServer">
+		<xs:complexContent>
+			<xs:extension base="IpNode">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="CoapFolder" type="CoapFolder"/>
+					<xs:group ref="CoapContentNodes"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapNode" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="Node">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapFolder">
+		<xs:complexContent>
+			<xs:extension base="CoapNode">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="CoapFolder" type="CoapFolder"/>
+					<xs:group ref="CoapContentNodes"/>
+				</xs:choice>
+				<xs:attribute name="folder" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapContent" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="CoapNode">
+				<xs:attribute name="resource" type="xs:string" use="required"/>
+				<xs:attribute name="query" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapSimpleContent" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="CoapContent">
+				<xs:attribute name="fieldName" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapBoolean">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapDateTime">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapDuration">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapNumber">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapPhysicalMagnitude">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapString">
+		<xs:complexContent>
+			<xs:extension base="CoapSimpleContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapFields">
+		<xs:complexContent>
+			<xs:extension base="CoapContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapJson">
+		<xs:complexContent>
+			<xs:extension base="CoapContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapXep0323">
+		<xs:complexContent>
+			<xs:extension base="CoapContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CoapXml">
+		<xs:complexContent>
+			<xs:extension base="CoapContent"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:group name="CoapContentNodes">
+		<xs:choice>
+			<xs:element name="CoapBoolean" type="CoapBoolean"/>
+			<xs:element name="CoapDateTime" type="CoapDateTime"/>
+			<xs:element name="CoapDuration" type="CoapDuration"/>
+			<xs:element name="CoapNumber" type="CoapNumber"/>
+			<xs:element name="CoapPhysicalMagnitude" type="CoapPhysicalMagnitude"/>
+			<xs:element name="CoapString" type="CoapString"/>
+			<xs:element name="CoapFields" type="CoapFields"/>
+			<xs:element name="CoapJson" type="CoapJson"/>
+			<xs:element name="CoapXep0323" type="CoapXep0323"/>
+			<xs:element name="CoapXml" type="CoapXml"/>
+		</xs:choice>
+	</xs:group>
+
+</xs:schema>

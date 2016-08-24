@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2004BE1-37BA-45D7-9DCE-1CB63D7ABAA9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Clayster.Library.IoT</RootNamespace>
+    <AssemblyName>Clayster.Library.IoT</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Clayster.Library.Internet">
+      <HintPath>..\Clayster\Clayster.Library.Internet.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NodeReference.cs" />
+    <Compile Include="SensorData\Field.cs" />
+    <Compile Include="SensorData\Export.cs" />
+    <Compile Include="SensorData\FieldBoolean.cs" />
+    <Compile Include="SensorData\FieldDateTime.cs" />
+    <Compile Include="SensorData\FieldEnum.cs" />
+    <Compile Include="SensorData\FieldLanguageStep.cs" />
+    <Compile Include="SensorData\FieldNumeric.cs" />
+    <Compile Include="SensorData\FieldStatus.cs" />
+    <Compile Include="SensorData\FieldString.cs" />
+    <Compile Include="SensorData\FieldTimeSpan.cs" />
+    <Compile Include="SensorData\ISensorDataExport.cs" />
+    <Compile Include="SensorData\ReadoutRequest.cs" />
+    <Compile Include="SensorData\ReadoutType.cs" />
+    <Compile Include="SensorData\SensorDataJsonExport.cs" />
+    <Compile Include="SensorData\SensorDataRdfExport.cs" />
+    <Compile Include="SensorData\SensorDataTurtleExport.cs" />
+    <Compile Include="SensorData\SensorDataXmlExport.cs" />
+    <Compile Include="SensorData\Import.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="SensorData\" />
+  </ItemGroup>
+</Project>

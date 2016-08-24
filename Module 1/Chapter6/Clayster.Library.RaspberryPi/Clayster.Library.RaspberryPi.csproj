@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86C3A3A9-FBE0-485C-8B9C-D093A7F52FDB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Clayster.Library.RaspberryPi</RootNamespace>
+    <AssemblyName>Clayster.Library.RaspberryPi</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GPIO.cs" />
+    <Compile Include="DigitalOutput.cs" />
+    <Compile Include="DigitalInput.cs" />
+    <Compile Include="Uart.cs" />
+    <Compile Include="Devices\Cameras\LinkSpriteJpegColorCamera.cs" />
+    <Compile Include="I2C.cs" />
+    <Compile Include="Devices\Temperature\TexasInstrumentsTMP102.cs" />
+    <Compile Include="ParallelDigitalInput.cs" />
+    <Compile Include="ParallelDigitalOutput.cs" />
+    <Compile Include="Devices\ADC\AD799x.cs" />
+    <Compile Include="SoftwarePwm.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Devices\" />
+    <Folder Include="Devices\Cameras\" />
+    <Folder Include="Devices\Temperature\" />
+    <Folder Include="Devices\ADC\" />
+  </ItemGroup>
+</Project>

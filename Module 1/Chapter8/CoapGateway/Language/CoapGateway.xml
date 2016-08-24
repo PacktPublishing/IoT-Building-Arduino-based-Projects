@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+© Clayster, 2014
+Author: Peter Waher
+-->
+<Languages xmlns="http://clayster.com/schema/Language/v1.xsd">
+	<Language name="en" displayName="English">
+		<Module name="CoapGateway">
+			<String stringId="1">CoAP Server</String>
+			<String stringId="2">Folder</String>
+			<String stringId="3">Folder:</String>
+			<String stringId="4">CoAP folder</String>
+			<String stringId="5">Composite folder</String>
+			<String stringId="6">If checked, the current folder consists of data of its child nodes.</String>
+			<String stringId="7">Resource Name:</String>
+			<String stringId="8">Local resource name of content.</String>
+			<String stringId="9">CoAP Port</String>
+			<String stringId="10">CoAP Port:</String>
+			<String stringId="11">Port to use on the local machine for incoming CoAP messages.</String>
+			<String stringId="12">Time to live (TTL):</String>
+			<String stringId="13">Number of router hops to allow, before messages are discarded.</String>
+			<String stringId="14">Scan...</String>
+			<String stringId="15">Number of attempts:</String>
+			<String stringId="16">Number of times CoAP resources are searched for, using multicast addressing.</String>
+			<String stringId="17">Interval (ms):</String>
+			<String stringId="18">Time interval between search attempts.</String>
+			<String stringId="19">Address:</String>
+			<String stringId="20">Multicast address to use during search.</String>
+			<String stringId="21">Enter a valid address.</String>
+			<String stringId="22">Port:</String>
+			<String stringId="23">Port to use during search.</String>
+			<String stringId="24">Scan result</String>
+			<String stringId="25">Attempt %0%</String>
+			<String stringId="26">Communication</String>
+			<String stringId="27">Scan</String>
+			<String stringId="28">Unexpected response returned.</String>
+			<String stringId="29">Field Name:</String>
+			<String stringId="30">Field name to use when reporting content.</String>
+			<String stringId="31">CoAP Boolean</String>
+			<String stringId="32">CoAP Duration</String>
+			<String stringId="33">CoAP Date &amp; Time</String>
+			<String stringId="34">CoAP Number</String>
+			<String stringId="35">CoAP Physical Magnitude</String>
+			<String stringId="36">CoAP String</String>
+			<String stringId="37">Unable to parse boolean value: %0%</String>
+			<String stringId="38">Unable to parse boolean value.</String>
+			<String stringId="39">Unable to parse duration value: %0%</String>
+			<String stringId="40">Unable to parse duration value.</String>
+			<String stringId="41">Unable to parse date &amp; time value: %0%</String>
+			<String stringId="42">Unable to parse date &amp; time value.</String>
+			<String stringId="43">Unable to parse numeric value: %0%</String>
+			<String stringId="44">Unable to parse numeric value.</String>
+			<String stringId="45">Unable to parse physical magnitude value: %0%</String>
+			<String stringId="46">Unable to parse physical magnitude value.</String>
+			<String stringId="47">Unable to parse string value.</String>
+			<String stringId="48">CoAP Fields XML</String>
+			<String stringId="49">XML expected.</String>
+			<String stringId="50">CoAP JSON</String>
+			<String stringId="51">CoAP XMPP XEP-0323 XML</String>
+			<String stringId="52">Content not valid XMPP XEP-0323 XML.</String>
+			<String stringId="53">Query String:</String>
+			<String stringId="54">Optional query string used in the request for data.</String>
+			<String stringId="55">User ID:</String>
+			<String stringId="56">Access to the server will be made using the access rights of this user account.</String>
+		</Module>
+	</Language>
+	<Language name="sv" displayName="Svenska">
+		<Module name="CoapGateway">
+			<String stringId="1">CoAP-server</String>
+			<String stringId="2">Katalog</String>
+			<String stringId="3">Katalog:</String>
+			<String stringId="4">CoAP-katalog</String>
+			<String stringId="5">Sammansatt katalog</String>
+			<String stringId="6">Om förkryssad, kommer den aktuella katalogen bestå av data från sina undernoder.</String>
+			<String stringId="7">Resursnamn:</String>
+			<String stringId="8">Innehållets lokala resursnamn.</String>
+			<String stringId="9">CoAP-port</String>
+			<String stringId="10">CoAP-port:</String>
+			<String stringId="11">Portnummer att använda på den lokala maskinen för inkommande CoAP-meddelanden.</String>
+			<String stringId="12">Time to live (TTL):</String>
+			<String stringId="13">Antal tillåtna router-hopp, innan meddelandet kastas.</String>
+			<String stringId="14">Skanna...</String>
+			<String stringId="15">Antal försök:</String>
+			<String stringId="16">Antal gånger CoAP-resurser eftersöks med hjälp av multicast-adressering.</String>
+			<String stringId="17">Intervall (ms):</String>
+			<String stringId="18">Tidsintervall mellan sökningar.</String>
+			<String stringId="19">Adress:</String>
+			<String stringId="20">Multicast-adress som ska användas under skanningen.</String>
+			<String stringId="21">Ante en giltig adress.</String>
+			<String stringId="22">Port:</String>
+			<String stringId="23">Port som ska användas under skanningen.</String>
+			<String stringId="24">Sökresultat</String>
+			<String stringId="25">Försök %0%</String>
+			<String stringId="26">Kommunikation</String>
+			<String stringId="27">Skanna</String>
+			<String stringId="28">Oväntat svar returnerades.</String>
+			<String stringId="29">Fältnamn:</String>
+			<String stringId="30">Fältnamn som ska användas när innehållet rapporteras.</String>
+			<String stringId="31">CoAP Boolsk</String>
+			<String stringId="32">CoAP Varaktighet</String>
+			<String stringId="33">CoAP Datum &amp; tid</String>
+			<String stringId="34">CoAP Nummer</String>
+			<String stringId="35">CoAP Fysikalisk storhet</String>
+			<String stringId="36">CoAP Sträng</String>
+			<String stringId="37">Kunde inte tolka boolskt värde: %0%</String>
+			<String stringId="38">Kunde inte tolka boolskt värde.</String>
+			<String stringId="39">Kunde inte tolka varaktighetsvärde: %0%</String>
+			<String stringId="40">Kunde inte tolka varaktighetsvärde.</String>
+			<String stringId="41">Kunde inte tolka datum &amp; tid: %0%</String>
+			<String stringId="42">Kunde inte tolka datum &amp; tid.</String>
+			<String stringId="43">Kunde inte tolka numeriskt värde: %0%</String>
+			<String stringId="44">Kunde inte tolka numeriskt värde.</String>
+			<String stringId="45">Kunde inte tolka fysikalisk storhet: %0%</String>
+			<String stringId="46">Kunde inte tolka fysikalisk storhet.</String>
+			<String stringId="47">Kunde inte tolka strängvärde.</String>
+			<String stringId="48">CoAP Fält-XML</String>
+			<String stringId="49">XML förväntades.</String>
+			<String stringId="50">CoAP JSON</String>
+			<String stringId="51">CoAP XMPP XEP-0323 XML</String>
+			<String stringId="52">Innehållet är inte giltig XMPP XEP-0323 XML.</String>
+			<String stringId="53">Frågesträng:</String>
+			<String stringId="54">Valfri frågesträng som ska användas när data efterfrågas.</String>
+			<String stringId="55">Användar-ID:</String>
+			<String stringId="56">Åtkomst till servern kommer att göras med åtkomsträttigheterna hos detta användarkonto.</String>
+		</Module>
+	</Language>
+</Languages>

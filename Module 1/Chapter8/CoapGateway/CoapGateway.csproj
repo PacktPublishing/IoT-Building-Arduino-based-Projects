@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A32959D7-1546-42E2-BC2E-805727ABF999}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoapGateway</RootNamespace>
+    <AssemblyName>CoapGateway</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="CopyToRaspberryPi.bat" workingdir="${ProjectDir}" />
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Clayster.AppServer.Infrastructure">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.AppServer.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Abstract">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Abstract.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Data">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.EventLog">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Installation">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Installation.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Internet">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Internet.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Language">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Language.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Math">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Clayster.Library.Meters">
+      <HintPath>C:\Downloads\ClaysterSmall\Clayster.Library.Meters.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CoapServer.cs" />
+    <Compile Include="CoapNode.cs" />
+    <Compile Include="CoapFolder.cs" />
+    <Compile Include="CoapContent.cs" />
+    <Compile Include="CoapPort.cs" />
+    <Compile Include="CoapSimpleContent.cs" />
+    <Compile Include="ContentTypes\Complex\CoapFields.cs" />
+    <Compile Include="ContentTypes\Complex\CoapJson.cs" />
+    <Compile Include="ContentTypes\Complex\CoapXep0323.cs" />
+    <Compile Include="ContentTypes\Complex\CoapXml.cs" />
+    <Compile Include="ContentTypes\Simple\CoapBoolean.cs" />
+    <Compile Include="ContentTypes\Simple\CoapDateTime.cs" />
+    <Compile Include="ContentTypes\Simple\CoapDuration.cs" />
+    <Compile Include="ContentTypes\Simple\CoapNumber.cs" />
+    <Compile Include="ContentTypes\Simple\CoapPhysicalMagnitude.cs" />
+    <Compile Include="ContentTypes\Simple\CoapString.cs" />
+    <Compile Include="CoapTopologyBridge.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LearningIoT.cer" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CoapGateway.packagemanifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Language\CoapGateway.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Schema\CoapTopology.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="CopyToRaspberryPi.bat" />
+    <None Include="Schema\CoapTopologyNoImport.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
