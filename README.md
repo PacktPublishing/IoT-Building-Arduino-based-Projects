@@ -1,5 +1,5 @@
 # IoT-Building-Arduino-based-Projects
-IoT Building Arduino based Projects by Packt Publishing
+IoT Building Arduino based Projects by Packt
 
 ##What You Will Learn:
 *	Know the capabilities and limitations of the HTTP, UPnP, CoAP, MQTT, and XMPP protocols
