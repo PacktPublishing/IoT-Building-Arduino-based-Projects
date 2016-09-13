@@ -1,4 +1,4 @@
-# IoT-Building-Arduino-based-Projects
+# IoT Building Arduino based Projects
 IoT Building Arduino based Projects by Packt
 
 ##What You Will Learn:
